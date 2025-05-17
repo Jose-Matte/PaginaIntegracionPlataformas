@@ -1,6 +1,13 @@
 from fastapi import FastAPI, HTTPException, Depends, Header
 from pydantic import BaseModel
 from typing import List, Optional
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Carga las variables del archivo .env
+
+api_key = os.getenv("API_KEY")
+print("API_KEY:", api_key)
 
 app = FastAPI()
 @app.get("/")
